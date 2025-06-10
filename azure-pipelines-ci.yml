@@ -4,7 +4,7 @@ trigger:
       - main
 
 pool:
-  name: SelfHosted        # or the custom agent pool nameee
+  name: SelfHosted        # or the custom agent pool nameeexcvbnm
   demands:
     - Agent.Name -equals Agennt
 
