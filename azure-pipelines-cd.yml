@@ -3,12 +3,12 @@ pr: none
 
 resources:
   pipelines:
-    - pipeline: ciPipelineAlias       # Alias used in this CD pipeline
-      source: azure-pipelines-ci      # Must match your CI pipeline name
+    - pipeline: ciPipelineAlias
+      source: azure-pipelines-ci
       trigger:
         branches:
           include:
-            - main                    # Triggers when CI runs on 'main'
+            - main
 
 pool:
   name: SelfHosted
