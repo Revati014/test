@@ -16,11 +16,11 @@ pool:
     - Agent.Name -equals Agennt
 
 stages:
-- stage: Deploy
-  displayName: CD: Deploy Stage
-  condition: succeeded()
-  jobs:
-  - job: DeployJob
-    steps:
-    - script: echo "CD: Deploying application..."
-      displayName: 'CD Step'
+  - stage: Deploy
+    displayName: CD: Deploy Stage
+    condition: succeeded()
+    jobs:
+      - job: DeployJob
+        steps:
+          - script: echo "CD: Deploying application..."
+            displayName: 'CD Step'
