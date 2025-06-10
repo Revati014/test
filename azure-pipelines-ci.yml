@@ -4,7 +4,9 @@ trigger:
       - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: SelfHosted        # or the custom agent pool name
+  demands:
+    - Agent.Name -equals Agennt
 
 steps:
   - script: echo "Building app..."
@@ -12,3 +14,4 @@ steps:
 
   - script: echo "Simulating docker push"
     displayName: 'CI: Push Image'
+
