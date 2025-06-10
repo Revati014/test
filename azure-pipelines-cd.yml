@@ -11,11 +11,9 @@ resources:
             - main
 
 pool:
-  name: SelfHosted        # Replace with your actual pool name if different
+  name: SelfHosted        # Replace with your actual pool name
   demands:
-    - Agent.Name
-    - equals
-    - Agennt
+    - Agent.Name -equals Agennt
 
 stages:
 - stage: Deploy
