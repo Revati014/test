@@ -11,7 +11,9 @@ resources:
             - main  # or any branch where CI is running — you can keep this as main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: SelfHosted        # or the custom agent pool name
+  demands:
+    - Agent.Name -equals Agennt
 
 stages:
 - stage: Deploy
