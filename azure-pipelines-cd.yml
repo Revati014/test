@@ -1,0 +1,24 @@
+trigger: none
+pr: none
+
+resources:
+  pipelines:
+    - pipeline: ciPipelineAlias  # This is just an alias you choose
+      source: azure-pipelines-ci  # 👈 Must match the actual CI pipeline name
+      trigger:
+        branches:
+          include:
+            - main  # or any branch where CI is running — you can keep this as main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Deploy
+  displayName: CD: Deploy Stage
+  condition: succeeded()
+  jobs:
+    - job: DeployJob
+      steps:
+        - script: echo "CD: Deploying application..."
+          displayName: 'CD Step'
