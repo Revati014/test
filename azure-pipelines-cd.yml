@@ -3,24 +3,23 @@ pr: none
 
 resources:
   pipelines:
-    - pipeline: ciPipelineAlias  # This is just an alias
-      source: azure-pipelines-ci  # 👈 Must match your CI pipeline name exactly
+    - pipeline: ciPipelineAlias  # alias to use inside this CD pipeline
+      source: azure-pipelines-ci # must exactly match your CI pipeline name
       trigger:
         branches:
-          include:
-            - main
+          - main                 # triggers when CI runs on 'main' branch
 
 pool:
-  name: SelfHosted        # Replace with your actual pool name
+  name: SelfHosted
   demands:
     - Agent.Name -equals Agennt
 
 stages:
-- stage: Deploy
-  displayName: CD: Deploy Stage
-  condition: succeeded()
-  jobs:
-    - job: DeployJob
-      steps:
-        - script: echo "CD: Deploying application..."
-          displayName: 'CD Step'
+  - stage: Deploy
+    displayName: CD: Deploy Stage
+    condition: succeeded()
+    jobs:
+      - job: DeployJob
+        steps:
+          - script: echo "CD: Deploying application..."
+            displayName: 'CD Step'
