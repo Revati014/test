@@ -1,0 +1,20 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: SelfHosted
+  demands:
+    - Agent.Name -equals Agennt
+
+steps:
+  - script: echo "Building app..."
+    displayName: 'CI: Build'
+
+  - script: echo "Simulating docker push"
+    displayName: 'CI: Push Image'
+
+  - publish: $(Pipeline.Workspace)
+    artifact: drop
+    displayName: 'Publish Artifact'  # ✅ REQUIRED to trigger CD pipeline
