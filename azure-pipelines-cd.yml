@@ -4,7 +4,7 @@ pr: none
 resources:
   pipelines:
     - pipeline: ciPipelineAlias
-      source: Revati014.test   # ✅ exact name from Azure DevOps
+      source: Revati014.test   # ✅ exact name from Azure DevOpsszfsdfsf
       trigger:
         branches:
           include:
