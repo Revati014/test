@@ -4,7 +4,7 @@ pr: none
 resources:
   pipelines:
     - pipeline: ciPipelineAlias
-      source: azure-pipelines-ci
+      source: Revati014.test   # ✅ exact name from Azure DevOps
       trigger:
         branches:
           include:
@@ -13,7 +13,7 @@ resources:
 pool:
   name: SelfHosted
   demands:
-    - Agent.Name -equals Agennt
+    - Agent.Name -equals Agennt  # 🔍 Fix this if the agent name is wrong
 
 stages:
   - stage: Deploy
