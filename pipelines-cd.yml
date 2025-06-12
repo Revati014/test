@@ -1,0 +1,27 @@
+trigger: none
+pr: none
+
+resources:
+  pipelines:
+    - pipeline: ciPipelineAlias
+      source: azure-pipelines-ci
+      trigger:
+        branches:
+          include:
+            - main
+
+pool:
+  name: SelfHosted
+  demands:
+    - Agent.Name -equals Agennt
+
+stages:
+- stage: Deploy
+  displayName: CD: Deploy Stage
+  condition: succeeded()
+  jobs:
+  - job: DeployJob
+    steps:
+    - script: echo "CD: Deploying application..."
+      displayName: 'CD Step'
+#bfsdhbfewuf
