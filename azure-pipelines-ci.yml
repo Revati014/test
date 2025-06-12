@@ -4,7 +4,7 @@ trigger:
       - main
 
 pool:
-  name: SelfHosted        # or the custom agent pool sdgdgsdfgsdgsrg
+  name: SelfHosted
   demands:
     - Agent.Name -equals Agennt
 
@@ -15,3 +15,6 @@ steps:
   - script: echo "Simulating docker push"
     displayName: 'CI: Push Image'
 
+  - publish: $(Pipeline.Workspace)
+    artifact: drop
+    displayName: 'Publish Artifact'  # ✅ REQUIRED to trigger CD pipeline
