@@ -17,4 +17,4 @@ steps:
 
   - publish: $(Pipeline.Workspace)
     artifact: drop
-    displayName: 'Publish Artifact'  # ✅ REQUIRED to trigger CD pipeline
+    displayName: 'Publish Artifact'  # ✅ REQUIRED to trigger CD pipelinevhj
